@@ -2,7 +2,7 @@ clc
 clear all
 %加载原始数据
 % load('boost1.mat');
-load('compared.mat');
+load('buckboost10.mat');
 % boost1
 i=1:1000;
 j=1:1000;
@@ -11,11 +11,11 @@ m=1:1000;
 n=1:1000;
 
 
-y =compared(i,1);
-y1=compared(j,2);
-y2=compared(k,3);
-y3=compared(m,4);
-y4=compared(n,5);
+y =buckboost10(i,1);
+y1=buckboost10(j,2);
+y2=buckboost10(k,3);
+y3=buckboost10(m,4);
+y4=buckboost10(n,5);
 cspca=[];
 
 w=45;               %信噪比
@@ -28,13 +28,13 @@ smooth=[];
 %%
 % for r=0.3:0.1:0.8
 % for w=30:5:65
-yw=awgn(y, w,'measured', 15);
-yw1=awgn(y1,w,'measured',15);
-yw2=awgn(y2,w,'measured',15);
-yw3=awgn(y3,w,'measured',15);
-yw4=awgn(y4,w,'measured',15);
+yw=awgn(y, w,'measured', 2);
+yw1=awgn(y1,w,'measured',2);
+yw2=awgn(y2,w,'measured',2);
+yw3=awgn(y3,w,'measured',2);
+yw4=awgn(y4,w,'measured',2);
 % for K=2:2:169
-K=106;                    %70;124
+K=100;                    %70;124
 % yw5=y5+w;
 sig=compressed(yw,r,K);
 sig1=compressed(yw1,r,K);
